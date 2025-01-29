@@ -179,11 +179,11 @@ int main(int argc, char* argv[]) {
 
     char* input = NULL;
 
-    // Ensure proper usage with both input and output file arguments
+    /* // Ensure proper usage with both input and output file arguments
     if (argc != 3) {
         fprintf(stderr, "Usage: %s <input_file> <output_file>\n", argv[0]);
         return -1;
-    }
+    } */
 
     // Open the input file
     FILE* f = fopen(argv[1], "r");
