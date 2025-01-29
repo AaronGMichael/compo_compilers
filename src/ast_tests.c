@@ -78,8 +78,13 @@ int main() {
     // Create a root DOM node (e.g., Body)
     DOM *root = create_dom(Document, NULL);
 
+    DOM *header1 = create_dom(Header1, NULL);
+    header1->text = "This is a paragraph.";
+    add_child_to_element(root, header1);
+
     // Add the first paragraph as a child node
     DOM *paragraph1 = create_dom(Paragraph, NULL);
+    paragraph1->text = "This is a paragraph.";
     add_child_to_element(root, paragraph1);
     // Print the entire DOM structure
     printf("DOM Structure:\n");

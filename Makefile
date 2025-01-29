@@ -34,6 +34,9 @@ just_scanner: out
 out:
 	mkdir -p out
 
+ast_tests: out
+	gcc $(if $(DEBUG),) -g -o out/ast_tests src/ast_tests.c src/ast.c -lm
+
 .PHONY: clean re
 
 clean:
