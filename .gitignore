@@ -1,0 +1,7 @@
+out/
+src/lex.*
+src/parser.c
+src/parser.h
+src/*.tab.*
+src/*.yy.*
+src/*.output
