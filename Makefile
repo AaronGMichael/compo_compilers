@@ -24,7 +24,7 @@ scanner: just_scanner
 compo: out
 	bison $(if $(VERBOSE),-tv -Wcounterexamples) -o src/y.tab.c -d src/parser.y
 	flex $(if $(VERBOSE),-d) -o src/lex.yy.c src/scanner.l
-	gcc $(if $(DEBUG),) -g -o out/compo src/lex.yy.c src/y.tab.c src/ast.c -lm
+	gcc $(if $(DEBUG),) -g -o out/compo src/lex.yy.c src/y.tab.c src/ast.c src/code_generation.c -lm
 
 just_scanner: out
 	flex -o src/lex.yy.c src/scanner.l

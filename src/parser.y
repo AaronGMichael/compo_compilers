@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "ast.h"
-
+#include "code_generation.h"
+#include "simple_strings.h"
 
 #define CHECK_YYNOMEM(ptr) if ((ptr) == NULL) YYNOMEM;
 #define CHECK_LENGTH(var, num) if ((num) >= 0) var = num; else { yyerror("negative length"); YYERROR; }
@@ -179,11 +180,11 @@ int main(int argc, char* argv[]) {
 
     char* input = NULL;
 
-    /* // Ensure proper usage with both input and output file arguments
+    // Ensure proper usage with both input and output file arguments
     if (argc != 3) {
         fprintf(stderr, "Usage: %s <input_file> <output_file>\n", argv[0]);
         return -1;
-    } */
+    }
 
     // Open the input file
     FILE* f = fopen(argv[1], "r");
@@ -240,10 +241,10 @@ int main(int argc, char* argv[]) {
         dom_display(dom_root, 1);
 
         // Generate code from the parsed DOM
-        /* string code = code_generation(dom_root); */
+        string code = code_generation(dom_root);
 
         // Open the output file
-        /* FILE* fres = fopen(argv[2], "w");
+        FILE* fres = fopen(argv[2], "w");
         if (!fres) {
             fprintf(stderr, "Cannot open output file, writing to out/results: %s\n", argv[2]);
             fres = fopen("out/results.html", "w");
@@ -251,7 +252,7 @@ int main(int argc, char* argv[]) {
 
         // Write the generated code to the output file
         fprintf(fres, "%s", code);
-        fclose(fres); */
+        fclose(fres);
 
         destroy_dom(dom_root);
     }
